@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Spotify Clone - DevOps Assessment
+
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app), containerized with Docker, and deployed to Kubernetes using GitHub Actions.
 
 ## Getting Started
 
@@ -33,8 +35,77 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Docker Containerization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This application is containerized using Docker with a multi-stage build process for optimized image size and security.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+### Building the Docker Image Locally
+
+```bash
+# Build the image
+docker build -t spotify-clone .
+
+# Run the container locally
+docker run -p 3000:3000 spotify-clone
+```
+
+## GitHub Actions Workflow
+
+The repository includes a GitHub Actions workflow that automatically:
+1. Builds the Docker image on push to the main branch
+2. Pushes the image to GitHub Container Registry (GHCR)
+3. Tags the image with the commit SHA, branch name, and 'latest' for the default branch
+
+### Prerequisites for GitHub Actions
+
+- Ensure your repository has proper permissions set for GitHub Actions to push to GHCR
+- The workflow uses the built-in `GITHUB_TOKEN` secret for authentication
+
+## Kubernetes Deployment
+
+### Prerequisites
+
+- [Minikube](https://minikube.sigs.k8s.io/docs/start/) installed
+- [kubectl](https://kubernetes.io/docs/tasks/tools/) installed
+
+### Deployment Steps
+
+1. Start Minikube:
+   ```bash
+   minikube start
+   ```
+
+2. Update the image name in `k8s/deployment.yaml` with your GitHub username:
+   ```yaml
+   image: ghcr.io/YOUR_GITHUB_USERNAME/spotify-clone:latest
+   ```
+
+3. Apply the Kubernetes manifests:
+   ```bash
+   kubectl apply -f k8s/
+   ```
+
+4. Check the deployment status:
+   ```bash
+   kubectl get deployments
+   kubectl get pods
+   ```
+
+### Accessing the Application
+
+1. Get the URL to access the application:
+   ```bash
+   minikube service spotify-clone --url
+   ```
+
+2. Open the URL in your browser to access the application
+
+## Cleaning Up
+
+```bash
+# Delete the Kubernetes resources
+kubectl delete -f k8s/
+
+# Stop Minikube
+minikube stop
+```
