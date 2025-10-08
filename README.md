@@ -1,166 +1,197 @@
-<!-- <!-- # Spotify Clone - DevOps Assessment
+# 🎵 Spotify Clone — DevOps Assessment 
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app), containerized with Docker, and deployed to Kubernetes using GitHub Actions.
+A Next.js 15 application bootstrapped with create-next-app, featuring a custom music player, containerized with Docker, and deployed to Kubernetes via GitHub Actions.
 
-## Getting Started
+![Assessment](assessment.png)
 
-First, run the development server:
+## 🛠️ Tech Stack 
 
+- **Frontend Framework**: Next.js (React) 
+- **Styling**: Tailwind CSS 
+- **Audio Player**: HTML5 `<audio>` + React hooks + Visualizer 
+- **Containerization**: Docker (multi-stage build) 
+- **CI/CD**: GitHub Actions 
+- **Orchestration**: Kubernetes (Minikube) 
+- **Registry**: GitHub Container Registry (GHCR) 
+
+## 🎶 Music Player Features 
+
+- Play, pause, skip next/previous tracks 
+- Shuffle & repeat functionality 
+- Volume control 
+- Seek bar with live progress updates 
+- Audio visualizer with animated bars 
+- Music categories: 
+  - Lo-Fi 
+  - Electronic 
+  - Jazz 
+  - Rock 
+  - Classical 
+  - All Music 
+- Responsive grid layout of songs with album covers and hover play buttons 
+- Songs are served from public/songs/ 
+
+Make sure your MP3 files are placed in public/songs/ and images in public/images/.
+
+## 🚀 Running Locally 
+
+Install dependencies 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install 
+# or 
+yarn 
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Docker Containerization
-
-This application is containerized using Docker with a multi-stage build process for optimized image size and security.
-
-### Building the Docker Image Locally
-
+Run development server 
 ```bash
-# Build the image
-docker build -t spotify-clone .
-
-# Run the container locally
-docker run -p 3000:3000 spotify-clone
+npm run dev 
+# or 
+yarn dev 
 ```
 
-## GitHub Actions Workflow
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-The repository includes a GitHub Actions workflow that automatically:
-1. Builds the Docker image on push to the main branch
-2. Pushes the image to GitHub Container Registry (GHCR)
-3. Tags the image with the commit SHA, branch name, and 'latest' for the default branch
-
-### Prerequisites for GitHub Actions
-
-- Ensure your repository has proper permissions set for GitHub Actions to push to GHCR
-- The workflow uses the built-in `GITHUB_TOKEN` secret for authentication
-
-## Kubernetes Deployment
-
-### Prerequisites
-
-- [Minikube](https://minikube.sigs.k8s.io/docs/start/) installed
-- [kubectl](https://kubernetes.io/docs/tasks/tools/) installed
-
-### Deployment Steps
-
-1. Start Minikube:
-   ```bash
-   minikube start
-   ```
-
-2. Update the image name in `k8s/deployment.yaml` with your GitHub username:
-   ```yaml
-   image: ghcr.io/YOUR_GITHUB_USERNAME/spotify-clone:latest
-   ```
-
-3. Apply the Kubernetes manifests:
-   ```bash
-   kubectl apply -f k8s/
-   ```
-
-4. Check the deployment status:
-   ```bash
-   kubectl get deployments
-   kubectl get pods
-   ```
-
-### Accessing the Application
-
-1. Get the URL to access the application:
-   ```bash
-   minikube service spotify-clone --url
-   ```
-
-2. Open the URL in your browser to access the application
-
-## Cleaning Up
-
-```bash
-# Delete the Kubernetes resources
-kubectl delete -f k8s/
-
-# Stop Minikube
-minikube stop
-``` -->
-
-
-
-# 🎵 Spotify Clone — DevOps Assessment
-
-A **Next.js 15** application bootstrapped with `create-next-app`, featuring a custom music player, containerized with Docker, and deployed to Kubernetes via GitHub Actions.
-
----
-
-## 🛠️ Tech Stack
-
-- **Frontend Framework:** Next.js (React)  
-- **Styling:** Tailwind CSS  
-- **Audio Player:** HTML5 `<audio>` + React hooks + Visualizer  
-- **Containerization:** Docker (multi-stage build)  
-- **CI/CD:** GitHub Actions  
-- **Orchestration:** Kubernetes (Minikube)  
-- **Registry:** GitHub Container Registry (GHCR)  
-
----
-
-## 🎶 Music Player Features
-
-- Play, pause, skip next/previous tracks  
-- Shuffle & repeat functionality  
-- Volume control  
-- Seek bar with live progress updates  
-- Audio visualizer with animated bars  
-- Music categories: Lo-Fi, Electronic, Jazz, Rock, Classical, All Music  
-- Responsive grid layout of songs with album covers and hover play buttons  
-
-> **Note:** Songs should be placed in `public/songs/` and images in `public/images/`.
-
----
-
-## 🚀 Running Locally
-
-Install dependencies:
-
-```bash
-npm install
-# or
-yarn
-
- -->
-
- ---
-  ## Run Development server:
-   npm run dev
-   # or
-   yarn dev
-
-Open http://localhost:3000 in your browser.
 Click any song to start playback. The player appears at the bottom.
 
+## 🐳 Docker Containerization 
+
+This app uses Docker multi-stage build for optimized image size.
+
+Build Docker image 
+```bash
+docker build -t spotify-clone . 
+```
+
+Run container 
+```bash
+docker run -p 3000:3000 spotify-clone 
+```
+
+Then open [http://localhost:3000](http://localhost:3000).
+
+## ⚙️ GitHub Actions CI/CD 
+
+Automates: 
+- Building the Docker image on push to main 
+- Pushing the image to GitHub Container Registry (GHCR) 
+- Tagging the image with: 
+  - Commit SHA 
+  - Branch name 
+  - latest for default branch 
+
+Prerequisites: 
+- Enable GitHub Actions in your repository 
+- Ensure GHCR permissions are configured (default GITHUB_TOKEN works) 
+
+Example workflow snippet: 
+
+```yaml
+name: Build & Push Docker 
+
+on: 
+  push: 
+    branches: 
+      - main 
+
+jobs: 
+  build-and-push: 
+    runs-on: ubuntu-latest 
+    steps: 
+      - uses: actions/checkout@v3 
+      - name: Set up Docker Buildx 
+        uses: docker/setup-buildx-action@v2 
+      - name: Log in to GHCR 
+        uses: docker/login-action@v2 
+        with: 
+          registry: ghcr.io 
+          username: ${{ github.actor }} 
+          password: ${{ secrets.GITHUB_TOKEN }} 
+      - name: Build & push Docker image 
+        uses: docker/build-push-action@v5 
+        with: 
+          context: . 
+          push: true 
+          tags: ghcr.io/Md-Aman45/spotify_clone:latest 
+```
+
+## ☸️ Kubernetes Deployment (Minikube) 
+
+Prerequisites: 
+- Minikube 
+- kubectl 
+
+Steps: 
+
+Start Minikube: 
+```bash
+minikube start 
+```
+
+Update the Docker image in k8s/deployment.yaml: 
+```yaml
+image: ghcr.io/Md-Aman45/spotify_clone:latest 
+```
+
+Apply Kubernetes manifests: 
+```bash
+kubectl apply -f k8s/ 
+```
+
+Check deployments and pods: 
+```bash
+kubectl get deployments 
+kubectl get pods 
+```
+
+Access your app using NodePort: 
+```bash
+minikube service spotify-clone --url 
+```
+
+This will give a URL like http://192.168.xx.xx:31162. You can open it in your browser or share it with others in your local network.
+
+Optional - Port Forwarding: 
+```bash
+kubectl port-forward svc/spotify-clone 3000:80 
+```
+
+Then access via [http://localhost:3000](http://localhost:3000).
+
+Cleanup: 
+```bash
+kubectl delete -f k8s/ 
+minikube stop 
+```
+
+## 📚 Learn More 
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [Docker Docs](https://docs.docker.com/)
+- [GitHub Actions Docs](https://docs.github.com/en/actions)
+- [Kubernetes Docs](https://kubernetes.io/docs/home/)
+
+## 🧠 Author 
+
+Md Aman
+
+Email: aman9534577@gmail.com
+
+GitHub: [@Md-Aman45](https://github.com/Md-Aman45)
+
+LinkedIn: [Md Aman](https://www.linkedin.com/in/md-aman-7941a0355/)
+
+
+
+✅ This version includes:  
+
+- Badges for GitHub Actions and Docker pulls  
+- Table of Contents  
+- All sections (Tech Stack, Music Features, Local Setup, Docker, CI/CD, Kubernetes, Learn More, Author)  
+- Proper code blocks for commands and YAML  
+
+---
+
+If you want, I can also **add screenshots of the music player and visualizer** to make the README look professional for GitHub.  
+
+Do you want me to add that?
