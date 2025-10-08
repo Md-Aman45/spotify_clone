@@ -1,4 +1,4 @@
-# Spotify Clone - DevOps Assessment
+<!-- <!-- # Spotify Clone - DevOps Assessment
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app), containerized with Docker, and deployed to Kubernetes using GitHub Actions.
 
@@ -108,4 +108,59 @@ kubectl delete -f k8s/
 
 # Stop Minikube
 minikube stop
-```
+``` -->
+
+
+
+# 🎵 Spotify Clone — DevOps Assessment
+
+A **Next.js 15** application bootstrapped with `create-next-app`, featuring a custom music player, containerized with Docker, and deployed to Kubernetes via GitHub Actions.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend Framework:** Next.js (React)  
+- **Styling:** Tailwind CSS  
+- **Audio Player:** HTML5 `<audio>` + React hooks + Visualizer  
+- **Containerization:** Docker (multi-stage build)  
+- **CI/CD:** GitHub Actions  
+- **Orchestration:** Kubernetes (Minikube)  
+- **Registry:** GitHub Container Registry (GHCR)  
+
+---
+
+## 🎶 Music Player Features
+
+- Play, pause, skip next/previous tracks  
+- Shuffle & repeat functionality  
+- Volume control  
+- Seek bar with live progress updates  
+- Audio visualizer with animated bars  
+- Music categories: Lo-Fi, Electronic, Jazz, Rock, Classical, All Music  
+- Responsive grid layout of songs with album covers and hover play buttons  
+
+> **Note:** Songs should be placed in `public/songs/` and images in `public/images/`.
+
+---
+
+## 🚀 Running Locally
+
+Install dependencies:
+
+```bash
+npm install
+# or
+yarn
+
+ -->
+
+ ---
+  ## Run Development server:
+   npm run dev
+   # or
+   yarn dev
+
+Open http://localhost:3000 in your browser.
+Click any song to start playback. The player appears at the bottom.
+

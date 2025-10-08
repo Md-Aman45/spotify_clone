@@ -118,18 +118,18 @@
 import { useState, useRef, useEffect } from "react";
 
 const songs = [
-  { id: 1, title: "Chill Vibes", artist: "Lo-Fi Beats", file: "/songs/chill.mp3", cover: "/images/chill.jpg.svg", color: "#8A2BE2" },
-  { id: 2, title: "Night Drive", artist: "Synthwave", file: "/songs/lofi.mp3", cover: "/images/lofi.jpg.svg", color: "#1DB954" },
-  { id: 3, title: "Energy Boost", artist: "EDM", file: "/songs/energy.mp3", cover: "/images/energy.jpg.svg", color: "#E9446A" },
-  { id: 4, title: "Jazz Classics", artist: "Jazz Ensemble", file: "/songs/jazz.mp3", cover: "/images/jazz.jpg.svg", color: "#3498db" },
-  { id: 5, title: "Rock Anthems", artist: "Rock Legends", file: "/songs/rock.mp3", cover: "/images/chill.jpg.svg", color: "#e74c3c" },
-  { id: 6, title: "Pop Hits", artist: "Pop Stars", file: "/songs/pop.mp3", cover: "/images/lofi.jpg.svg", color: "#f1c40f" },
-  { id: 7, title: "Ambient Sounds", artist: "Nature Vibes", file: "/songs/ambient.mp3", cover: "/images/energy.jpg.svg", color: "#2ecc71" },
-  { id: 8, title: "Classical Symphony", artist: "Orchestra", file: "/songs/classical.mp3", cover: "/images/jazz.jpg.svg", color: "#9b59b6" },
-  { id: 9, title: "Hip Hop Beats", artist: "Urban Artists", file: "/songs/hiphop.mp3", cover: "/images/chill.jpg.svg", color: "#34495e" },
-  { id: 10, title: "Electronic Mix", artist: "DJ Masters", file: "/songs/electronic.mp3", cover: "/images/lofi.jpg.svg", color: "#16a085" },
-  { id: 11, title: "Reggae Vibes", artist: "Island Rhythms", file: "/songs/reggae.mp3", cover: "/images/energy.jpg.svg", color: "#27ae60" },
-  { id: 12, title: "Workout Playlist", artist: "Fitness Beats", file: "/songs/chill.mp3", cover: "/images/jazz.jpg.svg", color: "#d35400" },
+  { id: 1, title: "Chill Vibes", artist: "Lo-Fi Beats", file: "/songs/chill-vibes.mp3", cover: "/images/chill.jpg", color: "#8A2BE2" },
+  { id: 2, title: "Night Drive", artist: "Synthwave", file: "/songs/night-drive.mp3", cover: "/images/night-drive.jpg", color: "#1DB954" },
+  { id: 3, title: "Energy Boost", artist: "EDM", file: "/songs/energy.mp3", cover: "/images/energy-boost.jpg", color: "#E9446A" },
+  { id: 4, title: "Jazz Classics", artist: "Jazz Ensemble", file: "/songs/jazz.mp3", cover: "/images/jazz.jpg", color: "#3498db" },
+  { id: 5, title: "Rock Anthems", artist: "Rock Legends", file: "/songs/rock.mp3", cover: "/images/rock.jpg", color: "#e74c3c" },
+  { id: 6, title: "Pop Hits", artist: "Pop Stars", file: "/songs/pop.mp3", cover: "/images/pop-hit.jpg", color: "#f1c40f" },
+  { id: 7, title: "Ambient Sounds", artist: "Nature Vibes", file: "/songs/space-ambient.mp3", cover: "/images/Ambient-Sounds.jpg", color: "#2ecc71" },
+  { id: 8, title: "Classical Symphony", artist: "Orchestra", file: "/songs/classical-music.mp3", cover: "/images/classic.jpg", color: "#9b59b6" },
+  { id: 9, title: "Hip Hop Beats", artist: "Urban Artists", file: "/songs/hip-hop.mp3", cover: "/images/hip-hop.jpg", color: "#34495e" },
+  { id: 10, title: "Electronic Mix", artist: "DJ Masters", file: "/songs/electronic.mp3", cover: "/images/electronic.jpg", color: "#16a085" },
+  { id: 11, title: "Reggae Vibes", artist: "Island Rhythms", file: "/songs/ragge.mp3", cover: "/images/ragge.jpg", color: "#27ae60" },
+  { id: 12, title: "Workout Playlist", artist: "Fitness Beats", file: "/songs/workout.mp3", cover: "/images/workout.jpg", color: "#d35400" },
 ];
 
 // Define music categories
